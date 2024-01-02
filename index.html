@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta name="author" content="Mugeha">
+  <meta charset="utf-8">
+  <meta name="description" content="Password generator">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Karla&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Inter&family=Karla&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="C:\Users\25475\OneDrive\generatepasswordProject\index.css">
+  <title>Password Generator</title>
+  </head>
+  <style>
+  * {
+    box-sizing:border-box;
+  }
+  body {
+    text-align: left;
+    background-color:rgba(18, 18, 17);
+  }
+  .mydiv{
+    width:550px;
+    height:550px;
+    background-color: #1F2937;
+    border-radius: 4px;
+    border:2px solid white;
+    vertical-align: center;
+    padding-left: 35px;
+    padding-top: 40px;
+    align-items: center;
+    margin:auto;
+    margin-top:70px;
+  }
+  h1 {
+    font-family:Karla;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 800;
+    color:#FFF;
+  }
+  .txt {
+    color: #4ADF86;
+    font-size:40px;
+    font-family:Karla;
+    font-weight:800;
+    font-style:normal;
+  }
+  .inter {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color:#D5D4D8;
+  }
+  button{
+    padding: 9px 17px 9px 15px;
+    border-radius: 6px;
+    background-color: #10B981;;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color:white;
+    border:none;
+  }
+  /* input[type=text]{
+    border:1px solid white;
+    width: 211px;
+  height: 39px;
+    margin-top:20px;
+    background-color: #273549;
+    border-radius: 6px;
+    color:white;
+    margin-left: 7px;
+  }*/
+  .random{
+    border:1px solid grey;
+    border-radius: 6px;
+    padding:14px 16px;
+    margin-top:60px;
+      background-color: #273549;
+      color:white;
+      margin-left: 0px;
+      width:70%
+  }
+  .rad{
+    margin-top:50px;
+  }
+
+  </style>
+
+  <body>
+    <div class="mydiv">
+    <h1>Generate a<br><span class="txt">random password</span></h1>
+    <p class="inter">Never use insecure passwords.</p>
+    <button onclick="generatePassword()">Generate passwords</button>
+    <hr style="width:90%;float:left;border:1px solid grey;margin-bottom:10px;"><br>
+    <div class="rad">
+    <span id="random-el" class="random"></span>
+    <span id="random-el2" class="random"></span>
+  </div>
+    <script>
+
+    const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
+    "/"];
+
+    // let genPass = document.getElementById("generatePassword")
+    let randomEl = document.getElementById("random-el");
+      let randomEl2 = document.getElementById("random-el2");
+
+
+     // genPass.addEventListener("click", function() {
+     // let randomNumber = Math.floor( Math.random() * characters.length )
+     // randomEl.textContent += characters[randomNumber]
+
+    // })
+    let passwordLength = 12;
+
+    function getRandomCharacter(){
+      let randomChar = Math.floor(Math.random() * characters.length);
+      return characters[randomChar];
+    }
+
+    function generatePassword(){
+      console.log("clicked")
+      let randomPassword = ""
+      for (let i = 0;i < passwordLength; i++){
+        randomPassword += getRandomCharacter()
+      }
+      randomEl.textContent = randomPassword;
+        randomEl2.textContent = randomPassword;
+    }
+    generatePassword();
+
+    </script>
+
+    </div>
+    </body>
+    </html>
